@@ -91,13 +91,14 @@ struct Officer: Comparable {
 Group 1
 */
 // Q4: Create an array of officer objects who captain starships
-var officers: [Officer] = captains.map { Officer(name: $0.key, ship: $0.value) }
-print(officers)
+var officers1: [Officer] = captains.map { Officer(name: $0, ship: $1) }
+var officers2 = officers1.map {($0.name)}
+print(officers2)
 
 
 
 // Q5: Alphabetize the previous list by the captain's name
-let sortedOfficers = officers.sorted()
+let sortedOfficers = officers2.sorted()
 print(sortedOfficers)
 
 
@@ -110,7 +111,7 @@ let vulcanFirstOfficers: [Officer] = firstOfficers.keys
     .filter { vulcanOfficers.contains($0) } // Filter for Vulcan names
     .map { Officer(name: $0, ship: firstOfficers[$0]!) } // Create Officer instances without capitalizing
 
-print(vulcanFirstOfficers)
+print(vulcanFirstOfficers.map{$0.name})
 
 
 
